@@ -1,0 +1,14 @@
+extends ../layout/admin
+block contenido
+    .py-10
+        h2.text-center.text-2xl.font-extrabold= pagina
+
+        if errores
+            div(class="max-w-md mx-auto my-10")
+                p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold Antes de Agregar un Gasto se deben Definir al menos una Categoria y un Medio de Pago
+            div(class="p-6 w-full flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-8 md:space-y-0 gap-4")
+                a(class="rounded py-2 px-10 bg-slate-500 text-sm font-bold text-center text-slate-400 uppercase my-5 inline-block w-full sm:w-auto") Añadir Gasto
+        
+        else
+            div(class="p-6 w-full flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-8 md:space-y-0 gap-4")    
+                a(href="/gastos/añadir" class="rounded py-2 px-10 bg-green-600 hover:bg-green-700 text-sm font-bold text-center text-white uppercase my-5 inline-block w-full sm:w-auto") Añadir Gasto
