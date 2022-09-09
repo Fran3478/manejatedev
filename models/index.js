@@ -1,6 +1,6 @@
 import Gasto from './Gasto.js'
 import Categoria from './Categoria.js'
-import Mediopago from './Mediopago.js'
+import Mediopago from './MedioPago.js'
 import Usuario from './Usuario.js'
 
 Gasto.belongsTo(Categoria, { foreignKey: 'categoriaId'})

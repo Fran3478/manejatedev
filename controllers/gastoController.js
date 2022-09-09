@@ -7,16 +7,8 @@ const admin = async (req, res) => {
     const { id } = req.usuario
 
     const [categorias, mediospago] = await Promise.all([
-        Categoria.findAll({
-            where: {
-                usuarioId : id
-            }
-        }),
-        Mediopago.findAll({
-            where: {
-                usuarioId : id
-            }
-        })
+        Categoria.findAll(),
+        Mediopago.findAll()
     ])
     if(categorias.length === 0 && mediospago.length === 0) {
         res.render('gastos/admin', {
@@ -39,16 +31,8 @@ const añadir = async (req, res) => {
     const { id } = req.usuario
 
     const [categorias, mediospago] = await Promise.all([
-        Categoria.findAll({
-            where: {
-                usuarioId : id
-            }
-        }),
-        Mediopago.findAll({
-            where: {
-                usuarioId : id
-            }
-        })
+        Categoria.findAll(),
+        Mediopago.findAll()
     ])
 
     res.render('gastos/nuevo-gasto', {
@@ -94,6 +78,7 @@ const guardar = async (req,res) => {
             mediopagoId,
             usuarioId
         })
+
 
         return res.redirect('/gastos/nuevo-gasto')
     } catch (error) {
